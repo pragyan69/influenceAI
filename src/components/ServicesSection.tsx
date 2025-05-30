@@ -1,5 +1,5 @@
 
-import { Globe, CreditCard, MapPin, Image, Megaphone, Zap, FileText } from 'lucide-react';
+import { Globe, CreditCard, MapPin, Image, Megaphone, Zap, Package } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -34,9 +34,9 @@ const ServicesSection = () => {
       description: "Choose from WhatsApp, Instagram DM, or Website bot"
     },
     {
-      icon: FileText,
-      title: "White-labeled Templates",
-      description: "Professional product and service templates ready to use"
+      icon: Package,
+      title: "White-labeled Products",
+      description: "Ready-to-sell products for reselling and dropshipping"
     }
   ];
 

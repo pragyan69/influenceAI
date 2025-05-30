@@ -13,6 +13,7 @@ const PricingSection = () => {
       features: [
         "Professional Logo Design",
         "Business Card Template",
+        "Free Sales Funnel",
         "Free Growth Strategy Session",
         "Basic Consultation"
       ],
@@ -35,7 +36,8 @@ const PricingSection = () => {
         "10 Professional Ad Creatives",
         "3 Meta Ad Campaigns",
         "One Custom Automation Bot",
-        "White-labeled Templates",
+        "Advanced Sales Funnel",
+        "White-labeled Products for Reselling",
         "Priority Support",
         "24/7 Technical Assistance"
       ],

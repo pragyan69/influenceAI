@@ -59,9 +59,9 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <img 
-                src="/lovable-uploads/ece987ea-0603-4df3-876d-1f55af092438.png" 
+                src="/lovable-uploads/cc869bf4-0bc5-4074-9e2d-1eaed58c6d8e.png" 
                 alt="INFLUENCE Logo" 
-                className="h-12 w-auto mr-3"
+                className="h-16 w-auto mr-3"
               />
               <h1 className="text-2xl font-bold gradient-text">INFLUENCE</h1>
             </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book Free Strategy Call
+                  Book Free Strategic Growth Session
                 </a>
               </Button>
             </div>
@@ -135,7 +135,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Book Free Strategy Call
+                    Book Free Strategic Growth Session
                   </a>
                 </Button>
               </div>

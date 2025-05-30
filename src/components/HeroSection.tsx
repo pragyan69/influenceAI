@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { Play, ArrowRight } from 'lucide-react';
+import { ArrowRight, TrendingUp } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -18,18 +18,51 @@ const HeroSection = () => {
         <div className="animate-fade-in">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
-            <span className="text-sm text-gray-300">🚀 Now with AI Voice Calling</span>
+            <span className="text-sm text-gray-300">🚀 Supercharge Your Business</span>
           </div>
 
           {/* Main headline */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Let AI Do the{' '}
-            <span className="gradient-text">Talking.</span>
-            <br />
-            You Close the Deals.
+            Reach{' '}
+            <span className="gradient-text">10x Revenue!</span>
           </h1>
 
           {/* Subtext */}
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Join the ranks of businesses that have achieved phenomenal growth with our proven strategies.
+          </p>
+
+          {/* Growth Chart Visual */}
+          <div className="mb-12 max-w-2xl mx-auto">
+            <div className="glass-card rounded-2xl p-8">
+              <div className="flex items-center justify-center mb-6">
+                <TrendingUp className="w-8 h-8 text-green-400 mr-3" />
+                <span className="text-xl font-semibold text-white">10x Revenue Growth</span>
+              </div>
+              
+              {/* Simple Growth Chart */}
+              <div className="relative h-32 flex items-end justify-center space-x-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-gray-500 rounded-t" style={{ height: '20px' }}></div>
+                  <span className="text-xs text-gray-400 mt-2">Month 1</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t" style={{ height: '40px' }}></div>
+                  <span className="text-xs text-gray-400 mt-2">Month 3</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-violet-500 rounded-t" style={{ height: '60px' }}></div>
+                  <span className="text-xs text-gray-400 mt-2">Month 6</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-green-500 rounded-t animate-pulse" style={{ height: '120px' }}></div>
+                  <span className="text-xs text-green-400 mt-2 font-bold">Month 12</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Subtext continued */}
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             Smart bots for DMs, calls, and workflows — fully automated.
             <br />
@@ -42,16 +75,8 @@ const HeroSection = () => {
               size="lg" 
               className="bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90 transition-all duration-300 text-lg px-8 py-6 animate-glow"
             >
-              Book a Free Demo
+              Book a Free Strategic Growth Session
               <ArrowRight className="ml-2" size={20} />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-6"
-            >
-              <Play className="mr-2" size={20} />
-              See It in Action
             </Button>
           </div>
 
@@ -96,13 +121,6 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>
