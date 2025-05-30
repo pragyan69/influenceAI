@@ -26,7 +26,7 @@ const ContactSection = () => {
       iconType: 'lucide',
       icon: Calendar,
       title: "Book Strategy Call",
-      description: "Free 30-minute consultation",
+      description: "Free 15-minute consultation",
       action: "Schedule Now",
       link: "https://calendly.com/officialinfluence/strategic-growth-session",
       color: "from-violet-500 to-purple-600"
