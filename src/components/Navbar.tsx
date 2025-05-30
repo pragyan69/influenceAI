@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,16 +17,16 @@ const Navbar = () => {
   return (
     <>
       {/* Top Contact Bar */}
-      <div className="bg-dark-secondary/80 backdrop-blur-md border-b border-white/5 py-2">
+      <div className="bg-gradient-to-r from-dark-secondary/90 to-dark-primary/90 backdrop-blur-md border-b border-violet-500/20 py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
-              <a href="tel:7637855557" className="flex items-center text-gray-300 hover:text-white transition-colors">
-                <img src="/lovable-uploads/18949394-1f89-4a45-96ff-feeb44c12279.png" alt="Phone" className="w-4 h-4 mr-2" />
+              <a href="tel:7637855557" className="flex items-center text-gray-300 hover:text-violet-400 transition-all duration-300 hover:scale-105">
+                <Phone size={16} className="mr-2 text-violet-400" />
                 7637855557
               </a>
-              <a href="mailto:influenceoffcl@gmail.com" className="flex items-center text-gray-300 hover:text-white transition-colors">
-                <img src="/lovable-uploads/1e792e5c-dc20-4eae-a4e7-3669335c3c89.png" alt="Email" className="w-4 h-4 mr-2" />
+              <a href="mailto:influenceoffcl@gmail.com" className="flex items-center text-gray-300 hover:text-blue-400 transition-all duration-300 hover:scale-105">
+                <Mail size={16} className="mr-2 text-blue-400" />
                 influenceoffcl@gmail.com
               </a>
             </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
                 href="https://api.whatsapp.com/send?phone=917637855557&text=Hello!%20%F0%9F%8C%9F%20I%27m%20passionate%20about%20growing%20my%20business%20and%20exploring%20exciting%20new%20opportunities.%20Let%27s%20embark%20on%20this%20journey%20together%20and%20make%20something%20amazing%20happen!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-green-400 transition-colors"
+                className="text-gray-300 hover:text-green-400 transition-all duration-300 hover:scale-105"
               >
                 WhatsApp
               </a>
@@ -43,7 +43,7 @@ const Navbar = () => {
                 href="https://calendly.com/officialinfluence/strategic-growth-session"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-violet-deep hover:text-violet-400 transition-colors"
+                className="bg-gradient-to-r from-violet-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:from-violet-700 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 Book Strategy Call
               </a>
@@ -53,17 +53,17 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="fixed top-8 w-full z-50 bg-dark-primary/80 backdrop-blur-md border-b border-white/10">
+      <nav className="fixed top-12 w-full z-50 bg-dark-primary/95 backdrop-blur-lg border-b border-violet-500/10 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <img 
                 src="/lovable-uploads/cc869bf4-0bc5-4074-9e2d-1eaed58c6d8e.png" 
                 alt="INFLUENCE Logo" 
-                className="h-16 w-auto mr-3"
+                className="h-20 w-auto mr-4 hover:scale-105 transition-transform duration-300"
               />
-              <h1 className="text-2xl font-bold gradient-text">INFLUENCE</h1>
+              <h1 className="text-3xl font-bold gradient-text">INFLUENCE</h1>
             </div>
 
             {/* Desktop Navigation */}
@@ -73,7 +73,7 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
+                    className="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg hover:bg-white/10 hover:scale-105"
                   >
                     {item.name}
                   </a>
@@ -85,7 +85,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               <Button 
                 asChild
-                className="bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90 transition-opacity"
+                className="bg-gradient-to-r from-violet-deep to-blue-electric hover:from-violet-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl px-6 py-3 text-lg font-semibold"
               >
                 <a 
                   href="https://calendly.com/officialinfluence/strategic-growth-session"
@@ -103,7 +103,7 @@ const Navbar = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white"
+                className="text-white hover:bg-white/10"
               >
                 {isOpen ? <X size={20} /> : <Menu size={20} />}
               </Button>
@@ -113,13 +113,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-dark-secondary border-t border-white/10">
+          <div className="md:hidden bg-dark-secondary/95 backdrop-blur-lg border-t border-white/10">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                  className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium rounded-lg hover:bg-white/10"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

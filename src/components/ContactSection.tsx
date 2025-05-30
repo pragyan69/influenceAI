@@ -1,12 +1,12 @@
 
 import { Button } from '@/components/ui/button';
-import { Calendar, MessageSquare } from 'lucide-react';
+import { Calendar, Phone, Mail } from 'lucide-react';
 
 const ContactSection = () => {
   const contactMethods = [
     {
-      iconType: 'image',
-      iconSrc: '/lovable-uploads/18949394-1f89-4a45-96ff-feeb44c12279.png',
+      iconType: 'lucide',
+      icon: Phone,
       title: "Call Us",
       description: "Speak directly with our team",
       action: "7637855557",
@@ -14,8 +14,8 @@ const ContactSection = () => {
       color: "from-green-500 to-emerald-600"
     },
     {
-      iconType: 'image',
-      iconSrc: '/lovable-uploads/1e792e5c-dc20-4eae-a4e7-3669335c3c89.png',
+      iconType: 'lucide',
+      icon: Mail,
       title: "Email Us",
       description: "Get detailed information",
       action: "Send Email",
@@ -43,42 +43,47 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-dark-secondary/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-gradient-to-br from-dark-secondary/50 to-dark-primary/80 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-blue-500/5"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
             Ready to <span className="gradient-text">Get Started?</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Let's discuss how AI automation can transform your business
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Let's discuss how AI automation can transform your business and accelerate your growth
           </p>
         </div>
 
         {/* Contact Methods Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {contactMethods.map((method, index) => {
             const isExternal = method.link.startsWith('http');
             
             return (
               <div
                 key={index}
-                className="glass-card rounded-2xl p-6 text-center hover:transform hover:-translate-y-2 transition-all duration-300"
+                className="glass-card rounded-3xl p-8 text-center hover:transform hover:-translate-y-4 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-violet-500/20 border border-white/10 hover:border-violet-500/30"
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${method.color} rounded-2xl flex items-center justify-center mb-4 mx-auto`}>
+                <div className={`w-20 h-20 bg-gradient-to-r ${method.color} rounded-3xl flex items-center justify-center mb-6 mx-auto shadow-lg hover:shadow-xl transition-all duration-300`}>
                   {method.iconType === 'image' ? (
-                    <img src={method.iconSrc} alt={method.title} className="w-8 h-8" />
+                    <img src={method.iconSrc} alt={method.title} className="w-10 h-10" />
                   ) : (
-                    <method.icon className="w-8 h-8 text-white" />
+                    <method.icon className="w-10 h-10 text-white" />
                   )}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{method.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">{method.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{method.title}</h3>
+                <p className="text-gray-300 text-sm mb-6 leading-relaxed">{method.description}</p>
                 <Button
                   asChild
                   variant="outline"
                   size="sm"
-                  className="border-white/20 text-white hover:bg-white/10"
+                  className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105"
                 >
                   <a 
                     href={method.link}
@@ -94,18 +99,18 @@ const ContactSection = () => {
 
         {/* Main CTA */}
         <div className="text-center">
-          <div className="glass-card rounded-3xl p-12 max-w-3xl mx-auto">
-            <h3 className="text-3xl font-bold mb-6 text-white">
+          <div className="glass-card rounded-3xl p-16 max-w-4xl mx-auto shadow-2xl border border-white/10 hover:border-violet-500/30 transition-all duration-500">
+            <h3 className="text-4xl font-bold mb-8 text-white">
               Transform Your Business Today
             </h3>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Join hundreds of businesses that have automated their operations and 3x their growth with our AI solutions.
+            <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+              Join hundreds of businesses that have automated their operations and achieved 3x growth with our AI solutions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button 
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90 transition-all duration-300 text-lg px-8 py-6"
+                className="bg-gradient-to-r from-violet-deep to-blue-electric hover:from-violet-600 hover:to-blue-600 transition-all duration-300 text-lg px-10 py-6 shadow-xl hover:shadow-2xl hover:scale-105"
               >
                 <a 
                   href="https://calendly.com/officialinfluence/strategic-growth-session"
@@ -119,7 +124,7 @@ const ContactSection = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-6"
+                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-lg px-10 py-6 transition-all duration-300 hover:scale-105"
               >
                 <a 
                   href="https://api.whatsapp.com/send?phone=917637855557&text=Hello!%20%F0%9F%8C%9F%20I%27m%20passionate%20about%20growing%20my%20business%20and%20exploring%20exciting%20new%20opportunities.%20Let%27s%20embark%20on%20this%20journey%20together%20and%20make%20something%20amazing%20happen!"
