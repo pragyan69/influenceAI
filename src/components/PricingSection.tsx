@@ -1,69 +1,47 @@
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Zap, Crown, Rocket } from 'lucide-react';
+import { Check, Gift, Crown } from 'lucide-react';
 
 const PricingSection = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
-
   const plans = [
     {
-      name: "Starter",
-      icon: Zap,
-      description: "Perfect for small businesses getting started",
-      monthlyPrice: 297,
-      annualPrice: 2970,
-      savings: "2 months free",
+      name: "Free Plan",
+      icon: Gift,
+      description: "Perfect for getting started",
+      price: "₹0",
+      period: "2 Weeks",
       features: [
-        "Instagram DM Bot",
-        "WhatsApp Automation",
-        "Basic AI Training",
-        "1,000 Monthly Messages",
-        "Email Support",
-        "Basic Analytics"
+        "Professional Logo Design",
+        "Business Card Template",
+        "Free Growth Strategy Session",
+        "Basic Consultation"
       ],
-      cta: "Start Free Trial",
-      popular: false
+      cta: "Get Started Free",
+      popular: false,
+      ctaLink: "https://calendly.com/officialinfluence/strategic-growth-session"
     },
     {
-      name: "Professional",
+      name: "Pro Plan",
       icon: Crown,
       description: "Most popular for growing businesses",
-      monthlyPrice: 697,
-      annualPrice: 6970,
-      savings: "2 months free",
+      price: "₹10,999",
+      period: "Year",
+      originalPrice: "₹15,999",
       features: [
-        "Everything in Starter",
-        "AI Voice Calling (100 calls/month)",
-        "Advanced AI Training",
-        "5,000 Monthly Messages",
+        "Everything in Free Plan",
+        "Complete Website + SSL + Domain",
+        "Payment Gateway Integration",
+        "Google Business Profile Setup",
+        "10 Professional Ad Creatives",
+        "3 Meta Ad Campaigns",
+        "One Custom Automation Bot",
+        "White-labeled Templates",
         "Priority Support",
-        "Advanced Analytics",
-        "Calendar Integration",
-        "Custom Workflows"
+        "24/7 Technical Assistance"
       ],
-      cta: "Start Free Trial",
-      popular: true
-    },
-    {
-      name: "Enterprise",
-      icon: Rocket,
-      description: "For large teams and agencies",
-      monthlyPrice: 1497,
-      annualPrice: 14970,
-      savings: "2 months free",
-      features: [
-        "Everything in Professional",
-        "Unlimited AI Voice Calls",
-        "Unlimited Messages",
-        "Custom AI Development",
-        "Dedicated Account Manager",
-        "White-label Options",
-        "API Access",
-        "24/7 Phone Support"
-      ],
-      cta: "Contact Sales",
-      popular: false
+      cta: "Start Pro Plan",
+      popular: true,
+      ctaLink: "https://calendly.com/officialinfluence/strategic-growth-session"
     }
   ];
 
@@ -76,43 +54,14 @@ const PricingSection = () => {
             Simple, <span className="gradient-text">Transparent</span> Pricing
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Choose the plan that fits your business. All plans include 14-day free trial.
+            Choose the plan that accelerates your business growth
           </p>
-
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center space-x-4">
-            <span className={`text-sm ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
-              Monthly
-            </span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className={`relative w-14 h-7 rounded-full transition-colors ${
-                isAnnual ? 'bg-violet-deep' : 'bg-gray-600'
-              }`}
-            >
-              <div
-                className={`absolute top-1 left-1 w-5 h-5 bg-white rounded-full transition-transform ${
-                  isAnnual ? 'translate-x-7' : 'translate-x-0'
-                }`}
-              />
-            </button>
-            <span className={`text-sm ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
-              Annual
-            </span>
-            {isAnnual && (
-              <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs font-semibold">
-                Save 20%
-              </span>
-            )}
-          </div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
-            const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
-            const originalPrice = isAnnual ? plan.monthlyPrice * 12 : null;
             
             return (
               <div
@@ -126,7 +75,7 @@ const PricingSection = () => {
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-violet-deep to-blue-electric px-4 py-2 rounded-full text-sm font-semibold text-white">
+                    <div className="bg-gradient-to-r from-violet-deep to-blue-electric px-6 py-2 rounded-full text-sm font-semibold text-white">
                       Most Popular
                     </div>
                   </div>
@@ -145,20 +94,13 @@ const PricingSection = () => {
 
                 {/* Pricing */}
                 <div className="text-center mb-8">
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-4xl font-bold text-white">${price}</span>
-                    <span className="text-gray-400 ml-1">
-                      /{isAnnual ? 'year' : 'month'}
-                    </span>
+                  <div className="flex items-baseline justify-center mb-2">
+                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    <span className="text-gray-400 ml-1">/{plan.period}</span>
                   </div>
-                  {isAnnual && originalPrice && (
-                    <div className="mt-2">
-                      <span className="text-gray-500 line-through text-sm">
-                        ${originalPrice}/year
-                      </span>
-                      <span className="text-green-400 text-sm ml-2">
-                        {plan.savings}
-                      </span>
+                  {plan.originalPrice && (
+                    <div className="text-gray-500 line-through text-sm">
+                      Originally {plan.originalPrice}/year
                     </div>
                   )}
                 </div>
@@ -175,6 +117,7 @@ const PricingSection = () => {
 
                 {/* CTA Button */}
                 <Button
+                  asChild
                   className={`w-full ${
                     plan.popular
                       ? 'bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90'
@@ -182,7 +125,13 @@ const PricingSection = () => {
                   } transition-all duration-300`}
                   size="lg"
                 >
-                  {plan.cta}
+                  <a 
+                    href={plan.ctaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {plan.cta}
+                  </a>
                 </Button>
               </div>
             );
@@ -196,10 +145,19 @@ const PricingSection = () => {
               Need a Custom Solution?
             </h3>
             <p className="text-gray-300 mb-6">
-              Let's build a tailored AI automation system for your specific needs.
+              Let's build a tailored AI automation system for your specific business needs.
             </p>
-            <Button className="bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90">
-              Schedule Consultation
+            <Button 
+              asChild
+              className="bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90"
+            >
+              <a 
+                href="https://calendly.com/officialinfluence/strategic-growth-session"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Schedule Custom Consultation
+              </a>
             </Button>
           </div>
         </div>

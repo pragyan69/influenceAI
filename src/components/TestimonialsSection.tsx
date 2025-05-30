@@ -7,40 +7,52 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "E-commerce Store Owner",
-      company: "Style Haven",
-      content: "INFLUENCE transformed our customer service. Our Instagram DM bot handles 90% of inquiries automatically, and our conversion rate increased by 180%.",
-      rating: 5,
-      image: "/api/placeholder/80/80",
-      results: "180% conversion increase"
+      name: "Aakriti Jain",
+      role: "Business Owner",
+      location: "Delhi, India",
+      flag: "🇮🇳",
+      content: "Influence helped me automate 80% of my client onboarding through WhatsApp. It's genius.",
+      rating: 5
     },
     {
-      name: "Mike Rodriguez",
-      role: "Fitness Coach",
-      company: "FitLife Coaching",
-      content: "The AI voice calling feature is incredible. It books discovery calls while I sleep, and I wake up to a calendar full of qualified prospects.",
-      rating: 5,
-      image: "/api/placeholder/80/80",
-      results: "300% more qualified leads"
+      name: "Rahul Singh",
+      role: "Fitness Center Owner",
+      location: "Bangalore, India",
+      flag: "🇮🇳",
+      content: "Our fitness center in Bangalore doubled trials with their custom bot.",
+      rating: 5
     },
     {
-      name: "Emma Thompson",
-      role: "Real Estate Agent",
-      company: "Prime Properties",
-      content: "I was skeptical about AI, but this system generates 50+ qualified leads weekly. The WhatsApp bot pre-qualifies buyers perfectly.",
-      rating: 5,
-      image: "/api/placeholder/80/80",
-      results: "50+ weekly qualified leads"
+      name: "James Carter",
+      role: "Agency Owner",
+      location: "Austin, USA",
+      flag: "🇺🇸",
+      content: "I've worked with top agencies. Influence is lean, fast, and delivers what matters.",
+      rating: 5
     },
     {
-      name: "David Chen",
-      role: "Hotel Manager",
-      company: "Luxury Resort Group",
-      content: "Guest inquiries are handled instantly, bookings increased 40%, and our team can focus on in-person guest experiences.",
-      rating: 5,
-      image: "/api/placeholder/80/80",
-      results: "40% booking increase"
+      name: "Vanessa Ortiz",
+      role: "Sales Director",
+      location: "NYC, USA",
+      flag: "🇺🇸",
+      content: "We closed 12 leads in our first 3 weeks using their AI lead qualification system.",
+      rating: 5
+    },
+    {
+      name: "Laura White",
+      role: "Course Creator",
+      location: "Manchester, UK",
+      flag: "🇬🇧",
+      content: "They built a bot for our online course funnel in less than 3 days. Results were instant.",
+      rating: 5
+    },
+    {
+      name: "Faisal Al Hadi",
+      role: "Real Estate Developer",
+      location: "Dubai, UAE",
+      flag: "🇦🇪",
+      content: "Our Dubai real estate bot has become a 24/7 agent. It handles all first-level queries now.",
+      rating: 5
     }
   ];
 
@@ -64,10 +76,10 @@ const TestimonialsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            What Our <span className="gradient-text">Clients</span> Say
+            Global <span className="gradient-text">Success Stories</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Real results from real businesses. See how INFLUENCE is transforming operations across industries.
+            Trusted by businesses worldwide to automate and scale their operations
           </p>
         </div>
 
@@ -101,24 +113,15 @@ const TestimonialsSection = () => {
                 "{testimonials[currentTestimonial].content}"
               </blockquote>
 
-              {/* Results Badge */}
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-violet-deep/20 to-blue-electric/20 rounded-full border border-violet-deep/30 mb-6">
-                <span className="text-sm font-semibold gradient-text">
-                  {testimonials[currentTestimonial].results}
-                </span>
-              </div>
-
               {/* Author */}
               <div className="flex items-center justify-center space-x-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-violet-deep to-blue-electric rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">
-                    {testimonials[currentTestimonial].name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                <div className="w-16 h-16 bg-gradient-to-r from-violet-deep to-blue-electric rounded-full flex items-center justify-center text-2xl">
+                  {testimonials[currentTestimonial].flag}
                 </div>
                 <div className="text-left">
                   <div className="font-semibold text-white">{testimonials[currentTestimonial].name}</div>
                   <div className="text-gray-300">{testimonials[currentTestimonial].role}</div>
-                  <div className="text-gray-400 text-sm">{testimonials[currentTestimonial].company}</div>
+                  <div className="text-gray-400 text-sm">{testimonials[currentTestimonial].location}</div>
                 </div>
               </div>
             </div>
@@ -138,7 +141,7 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Secondary Testimonials */}
+        {/* Secondary Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
           {testimonials.slice(0, 3).map((testimonial, index) => (
             <div key={index} className="glass-card rounded-2xl p-6">
@@ -147,18 +150,16 @@ const TestimonialsSection = () => {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+              <p className="text-gray-300 text-sm mb-4">
                 "{testimonial.content}"
               </p>
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-violet-deep to-blue-electric rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                  <span className="text-sm">{testimonial.flag}</span>
                 </div>
                 <div>
                   <div className="font-semibold text-white text-sm">{testimonial.name}</div>
-                  <div className="text-gray-400 text-xs">{testimonial.company}</div>
+                  <div className="text-gray-400 text-xs">{testimonial.location}</div>
                 </div>
               </div>
             </div>
