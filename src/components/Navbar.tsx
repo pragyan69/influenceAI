@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +22,11 @@ const Navbar = () => {
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
               <a href="tel:7637855557" className="flex items-center text-gray-300 hover:text-white transition-colors">
-                <Phone size={14} className="mr-2" />
+                <img src="/lovable-uploads/18949394-1f89-4a45-96ff-feeb44c12279.png" alt="Phone" className="w-4 h-4 mr-2" />
                 7637855557
               </a>
               <a href="mailto:influenceoffcl@gmail.com" className="flex items-center text-gray-300 hover:text-white transition-colors">
-                <Mail size={14} className="mr-2" />
+                <img src="/lovable-uploads/1e792e5c-dc20-4eae-a4e7-3669335c3c89.png" alt="Email" className="w-4 h-4 mr-2" />
                 influenceoffcl@gmail.com
               </a>
             </div>

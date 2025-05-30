@@ -1,11 +1,12 @@
 
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, Calendar, MessageSquare } from 'lucide-react';
+import { Calendar, MessageSquare } from 'lucide-react';
 
 const ContactSection = () => {
   const contactMethods = [
     {
-      icon: Phone,
+      iconType: 'image',
+      iconSrc: '/lovable-uploads/18949394-1f89-4a45-96ff-feeb44c12279.png',
       title: "Call Us",
       description: "Speak directly with our team",
       action: "7637855557",
@@ -13,7 +14,8 @@ const ContactSection = () => {
       color: "from-green-500 to-emerald-600"
     },
     {
-      icon: Mail,
+      iconType: 'image',
+      iconSrc: '/lovable-uploads/1e792e5c-dc20-4eae-a4e7-3669335c3c89.png',
       title: "Email Us",
       description: "Get detailed information",
       action: "Send Email",
@@ -21,6 +23,7 @@ const ContactSection = () => {
       color: "from-blue-500 to-cyan-600"
     },
     {
+      iconType: 'lucide',
       icon: Calendar,
       title: "Book Strategy Call",
       description: "Free 30-minute consultation",
@@ -29,7 +32,8 @@ const ContactSection = () => {
       color: "from-violet-500 to-purple-600"
     },
     {
-      icon: MessageSquare,
+      iconType: 'image',
+      iconSrc: '/lovable-uploads/0e01db83-dbd7-4b7b-89c1-78f86d43b470.png',
       title: "WhatsApp",
       description: "Quick chat on WhatsApp",
       action: "Start Chat",
@@ -54,7 +58,6 @@ const ContactSection = () => {
         {/* Contact Methods Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {contactMethods.map((method, index) => {
-            const Icon = method.icon;
             const isExternal = method.link.startsWith('http');
             
             return (
@@ -63,7 +66,11 @@ const ContactSection = () => {
                 className="glass-card rounded-2xl p-6 text-center hover:transform hover:-translate-y-2 transition-all duration-300"
               >
                 <div className={`w-16 h-16 bg-gradient-to-r ${method.color} rounded-2xl flex items-center justify-center mb-4 mx-auto`}>
-                  <Icon className="w-8 h-8 text-white" />
+                  {method.iconType === 'image' ? (
+                    <img src={method.iconSrc} alt={method.title} className="w-8 h-8" />
+                  ) : (
+                    <method.icon className="w-8 h-8 text-white" />
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{method.title}</h3>
                 <p className="text-gray-300 text-sm mb-4">{method.description}</p>
