@@ -92,6 +92,11 @@
     50% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.6); }
   }
 
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
   .float-animation {
     animation: float 6s ease-in-out infinite;
   }
@@ -121,5 +126,16 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #8b5cf6, #60a5fa);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .glass-card {
+      backdrop-blur: 8px;
+    }
+    
+    html {
+      font-size: 16px;
+    }
   }
 }
