@@ -97,6 +97,30 @@
     to { transform: rotate(360deg); }
   }
 
+  /* Enhanced Earth rotation animation */
+  @keyframes earthRotation {
+    0% { 
+      transform: rotate(0deg) scale(1);
+      filter: contrast(1.2) saturate(1.1) brightness(0.9);
+    }
+    25% { 
+      transform: rotate(90deg) scale(1.02);
+      filter: contrast(1.3) saturate(1.2) brightness(0.95);
+    }
+    50% { 
+      transform: rotate(180deg) scale(1);
+      filter: contrast(1.2) saturate(1.1) brightness(0.9);
+    }
+    75% { 
+      transform: rotate(270deg) scale(1.02);
+      filter: contrast(1.3) saturate(1.2) brightness(0.95);
+    }
+    100% { 
+      transform: rotate(360deg) scale(1);
+      filter: contrast(1.2) saturate(1.1) brightness(0.9);
+    }
+  }
+
   .float-animation {
     animation: float 6s ease-in-out infinite;
   }
@@ -128,14 +152,92 @@
     background: linear-gradient(to bottom, #8b5cf6, #60a5fa);
   }
 
-  /* Mobile optimizations */
+  /* Enhanced mobile optimizations */
   @media (max-width: 640px) {
     .glass-card {
-      backdrop-blur: 8px;
+      backdrop-blur: 6px;
     }
     
     html {
       font-size: 16px;
+    }
+
+    /* Ensure text is readable on mobile */
+    body {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    /* Better touch targets */
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Optimize animations for mobile */
+    .float-animation {
+      animation-duration: 8s;
+    }
+
+    @keyframes earthRotation {
+      0% { 
+        transform: rotate(0deg) scale(0.9);
+        filter: contrast(1.1) saturate(1.0) brightness(0.85);
+      }
+      100% { 
+        transform: rotate(360deg) scale(0.9);
+        filter: contrast(1.1) saturate(1.0) brightness(0.85);
+      }
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 375px) {
+    .glass-card {
+      backdrop-blur: 4px;
+      padding: 0.5rem;
+    }
+
+    /* Reduce animation intensity on very small screens */
+    .float-animation {
+      animation: none;
+    }
+
+    @keyframes earthRotation {
+      0% { 
+        transform: rotate(0deg) scale(0.8);
+        filter: contrast(1.0) saturate(0.9) brightness(0.8);
+      }
+      100% { 
+        transform: rotate(360deg) scale(0.8);
+        filter: contrast(1.0) saturate(0.9) brightness(0.8);
+      }
+    }
+  }
+
+  /* Large screens - enhance the globe effect */
+  @media (min-width: 1024px) {
+    @keyframes earthRotation {
+      0% { 
+        transform: rotate(0deg) scale(1.1);
+        filter: contrast(1.3) saturate(1.3) brightness(1.0) drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+      }
+      25% { 
+        transform: rotate(90deg) scale(1.15);
+        filter: contrast(1.4) saturate(1.4) brightness(1.05) drop-shadow(0 0 25px rgba(124, 58, 237, 0.4));
+      }
+      50% { 
+        transform: rotate(180deg) scale(1.1);
+        filter: contrast(1.3) saturate(1.3) brightness(1.0) drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+      }
+      75% { 
+        transform: rotate(270deg) scale(1.15);
+        filter: contrast(1.4) saturate(1.4) brightness(1.05) drop-shadow(0 0 25px rgba(124, 58, 237, 0.4));
+      }
+      100% { 
+        transform: rotate(360deg) scale(1.1);
+        filter: contrast(1.3) saturate(1.3) brightness(1.0) drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+      }
     }
   }
 }
