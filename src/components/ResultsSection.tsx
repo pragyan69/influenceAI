@@ -83,20 +83,20 @@ const ResultsSection = () => {
   }, []);
 
   return (
-    <section id="results" className="py-24 bg-dark-secondary/50">
+    <section id="results" className="py-16 sm:py-24 bg-dark-secondary/50">
       <div id="results-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Proven <span className="gradient-text">Results</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Real numbers from real businesses that transformed with our automation
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             const counterValues = [counters.growth, counters.roi, counters.customers, counters.reduction];
@@ -104,20 +104,20 @@ const ResultsSection = () => {
             return (
               <div
                 key={index}
-                className="glass-card rounded-2xl p-8 text-center hover:transform hover:-translate-y-2 transition-all duration-300"
+                className="glass-card rounded-2xl p-6 sm:p-8 text-center hover:transform hover:-translate-y-2 transition-all duration-300"
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mb-6 mx-auto`}>
-                  <Icon className="w-8 h-8 text-white" />
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mx-auto`}>
+                  <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <div className="mb-4">
-                  <span className="text-4xl md:text-5xl font-bold gradient-text">
+                <div className="mb-3 sm:mb-4">
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text">
                     {counterValues[index]}
                   </span>
-                  <span className="text-2xl md:text-3xl font-bold text-white">
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                     {stat.suffix}
                   </span>
                 </div>
-                <p className="text-gray-300 font-medium">{stat.label}</p>
+                <p className="text-gray-300 font-medium text-sm sm:text-base">{stat.label}</p>
               </div>
             );
           })}
