@@ -43,8 +43,8 @@ const ResultsSection = () => {
 
   useEffect(() => {
     const animateCounters = () => {
-      const duration = 2000;
-      const steps = 60;
+      const duration = 4000; // Increased to 4 seconds for more realistic feel
+      const steps = 100;
       const stepDuration = duration / steps;
 
       let step = 0;
@@ -52,11 +52,14 @@ const ResultsSection = () => {
         step++;
         const progress = step / steps;
         
+        // Use easing function for more realistic animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        
         setCounters({
-          growth: Math.floor(40 * progress),
-          roi: Math.floor(3 * progress),
-          customers: Math.floor(200 * progress),
-          reduction: Math.floor(95 * progress)
+          growth: Math.floor(40 * easeOutQuart),
+          roi: Math.floor(3 * easeOutQuart),
+          customers: Math.floor(200 * easeOutQuart),
+          reduction: Math.floor(95 * easeOutQuart)
         });
 
         if (step >= steps) {
@@ -73,7 +76,7 @@ const ResultsSection = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     const section = document.getElementById('results-section');
