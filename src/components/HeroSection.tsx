@@ -24,17 +24,17 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced Globe Background - New Blue Earth */}
+      {/* Enhanced Globe Background - Optimized for all devices including mobile */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div 
-          className="w-[400vw] h-[400vw] xs:w-[350vw] xs:h-[350vw] sm:w-[300vw] sm:h-[300vw] md:w-[250vw] md:h-[250vw] lg:w-[200vw] lg:h-[200vw] xl:w-[150vw] xl:h-[150vw] opacity-20 xs:opacity-25 sm:opacity-30 md:opacity-35 lg:opacity-40"
+          className="w-[120vw] h-[120vw] xs:w-[110vw] xs:h-[110vw] sm:w-[100vw] sm:h-[100vw] md:w-[90vw] md:h-[90vw] lg:w-[80vw] lg:h-[80vw] xl:w-[70vw] xl:h-[70vw] opacity-25 xs:opacity-30 sm:opacity-35 md:opacity-40 lg:opacity-45"
           style={{
             backgroundImage: `url('/lovable-uploads/bd30c280-08cb-4f0b-9318-ca28cf6a4df2.png')`,
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            animation: 'earthRotation 60s linear infinite',
-            filter: 'contrast(1.3) saturate(1.2) brightness(0.8)',
+            animation: 'earthRotation 45s linear infinite',
+            filter: 'contrast(1.4) saturate(1.3) brightness(0.9)',
           }}
         />
       </div>
@@ -103,14 +103,22 @@ const HeroSection = () => {
             <span className="block">Scale your outreach while you focus on closing.</span>
           </p>
 
-          {/* CTA Buttons - Enhanced mobile layout */}
+          {/* CTA Buttons - Enhanced mobile layout with proper Calendly link */}
           <div className="flex flex-col gap-3 xs:gap-4 sm:gap-5 justify-center items-center mb-8 xs:mb-10 sm:mb-12 md:mb-14 lg:mb-16 px-2 xs:px-3">
             <Button 
+              asChild
               size="lg" 
               className="w-full xs:w-full sm:w-auto bg-gradient-to-r from-violet-deep to-blue-electric hover:opacity-90 transition-all duration-300 text-sm xs:text-base sm:text-lg md:text-xl px-4 xs:px-5 sm:px-6 md:px-8 py-3 xs:py-4 sm:py-5 md:py-6 animate-glow min-h-[48px] xs:min-h-[52px] sm:min-h-[56px]"
             >
-              <span className="text-center leading-tight">Book a Free Strategic Growth Session</span>
-              <ArrowRight className="ml-2 xs:ml-3 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+              <a 
+                href="https://calendly.com/officialinfluence/strategic-growth-session"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full"
+              >
+                <span className="text-center leading-tight">Book a Free Strategic Growth Session</span>
+                <ArrowRight className="ml-2 xs:ml-3 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+              </a>
             </Button>
           </div>
 
