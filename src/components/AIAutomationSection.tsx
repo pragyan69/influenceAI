@@ -62,13 +62,28 @@ const AIAutomationSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
+      {/* Animated Robot Background */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <div 
+          className="w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px]"
+          style={{
+            backgroundImage: `url('/lovable-uploads/575c5c78-d2e4-4718-a590-6c073250cd26.png')`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            animation: 'robotWave 4s ease-in-out infinite',
+            transform: 'translateZ(0)', // Enable 3D acceleration
+          }}
+        />
+      </div>
+
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-violet-deep/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-electric/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">

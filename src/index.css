@@ -97,6 +97,30 @@
     to { transform: rotate(360deg); }
   }
 
+  /* Robot waving animation - 3D effect */
+  @keyframes robotWave {
+    0% { 
+      transform: translateY(0px) rotateY(0deg) scale(1);
+      filter: brightness(1) contrast(1);
+    }
+    25% { 
+      transform: translateY(-5px) rotateY(5deg) scale(1.02);
+      filter: brightness(1.1) contrast(1.1);
+    }
+    50% { 
+      transform: translateY(-10px) rotateY(0deg) scale(1.05);
+      filter: brightness(1.2) contrast(1.2);
+    }
+    75% { 
+      transform: translateY(-5px) rotateY(-5deg) scale(1.02);
+      filter: brightness(1.1) contrast(1.1);
+    }
+    100% { 
+      transform: translateY(0px) rotateY(0deg) scale(1);
+      filter: brightness(1) contrast(1);
+    }
+  }
+
   /* Enhanced Earth rotation animation - Optimized for all devices */
   @keyframes earthRotation {
     0% { 
@@ -175,9 +199,25 @@
       min-width: 48px;
     }
 
-    /* Optimize animations for mobile - Smoother globe rotation */
+    /* Optimize animations for mobile - Smoother globe rotation and robot wave */
     .float-animation {
       animation-duration: 8s;
+    }
+
+    /* Mobile-optimized robot waving */
+    @keyframes robotWave {
+      0% { 
+        transform: translateY(0px) scale(1);
+        filter: brightness(1) contrast(1);
+      }
+      50% { 
+        transform: translateY(-8px) scale(1.03);
+        filter: brightness(1.1) contrast(1.1);
+      }
+      100% { 
+        transform: translateY(0px) scale(1);
+        filter: brightness(1) contrast(1);
+      }
     }
 
     /* Mobile-optimized Earth rotation */
@@ -204,7 +244,18 @@
       padding: 0.5rem;
     }
 
-    /* Maintain smooth globe rotation on very small screens */
+    /* Maintain smooth robot wave and globe rotation on very small screens */
+    @keyframes robotWave {
+      0% { 
+        transform: translateY(0px) scale(1);
+        filter: brightness(0.9) contrast(1);
+      }
+      100% { 
+        transform: translateY(-5px) scale(1.01);
+        filter: brightness(1) contrast(1.1);
+      }
+    }
+
     @keyframes earthRotation {
       0% { 
         transform: rotate(0deg) scale(1);
@@ -219,6 +270,25 @@
 
   /* Small screens */
   @media (min-width: 476px) and (max-width: 640px) {
+    @keyframes robotWave {
+      0% { 
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        filter: brightness(1) contrast(1);
+      }
+      33% { 
+        transform: translateY(-6px) rotateY(3deg) scale(1.02);
+        filter: brightness(1.05) contrast(1.05);
+      }
+      66% { 
+        transform: translateY(-8px) rotateY(-3deg) scale(1.03);
+        filter: brightness(1.1) contrast(1.1);
+      }
+      100% { 
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        filter: brightness(1) contrast(1);
+      }
+    }
+
     @keyframes earthRotation {
       0% { 
         transform: rotate(0deg) scale(1);
@@ -245,6 +315,29 @@
 
   /* Medium screens */
   @media (min-width: 641px) and (max-width: 1023px) {
+    @keyframes robotWave {
+      0% { 
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        filter: brightness(1) contrast(1) drop-shadow(0 0 10px rgba(59, 130, 246, 0.2));
+      }
+      25% { 
+        transform: translateY(-8px) rotateY(4deg) scale(1.02);
+        filter: brightness(1.1) contrast(1.1) drop-shadow(0 0 15px rgba(124, 58, 237, 0.3));
+      }
+      50% { 
+        transform: translateY(-12px) rotateY(0deg) scale(1.04);
+        filter: brightness(1.15) contrast(1.15) drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
+      }
+      75% { 
+        transform: translateY(-8px) rotateY(-4deg) scale(1.02);
+        filter: brightness(1.1) contrast(1.1) drop-shadow(0 0 15px rgba(124, 58, 237, 0.3));
+      }
+      100% { 
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        filter: brightness(1) contrast(1) drop-shadow(0 0 10px rgba(59, 130, 246, 0.2));
+      }
+    }
+
     @keyframes earthRotation {
       0% { 
         transform: rotate(0deg) scale(1);
@@ -269,8 +362,35 @@
     }
   }
 
-  /* Large screens - enhance the globe effect */
+  /* Large screens - enhance both robot and globe effects */
   @media (min-width: 1024px) {
+    @keyframes robotWave {
+      0% { 
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        filter: brightness(1) contrast(1) drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+      }
+      20% { 
+        transform: translateY(-8px) rotateY(6deg) scale(1.02);
+        filter: brightness(1.08) contrast(1.08) drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
+      }
+      40% { 
+        transform: translateY(-15px) rotateY(3deg) scale(1.05);
+        filter: brightness(1.15) contrast(1.15) drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
+      }
+      60% { 
+        transform: translateY(-12px) rotateY(-3deg) scale(1.04);
+        filter: brightness(1.12) contrast(1.12) drop-shadow(0 0 22px rgba(124, 58, 237, 0.45));
+      }
+      80% { 
+        transform: translateY(-5px) rotateY(-6deg) scale(1.02);
+        filter: brightness(1.05) contrast(1.05) drop-shadow(0 0 18px rgba(59, 130, 246, 0.35));
+      }
+      100% { 
+        transform: translateY(0px) rotateY(0deg) scale(1);
+        filter: brightness(1) contrast(1) drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+      }
+    }
+
     @keyframes earthRotation {
       0% { 
         transform: rotate(0deg) scale(1);
