@@ -35,7 +35,7 @@ const PricingSection = () => {
         "Google Business Profile Setup",
         "10 Professional Ad Creatives",
         "3 Meta Ad Campaigns",
-        "One Custom Automation Bot",
+        "One Website Customer Support Bot",
         "Advanced Sales Funnel",
         "White-labeled Products for Reselling",
         "Priority Support",

@@ -13,28 +13,28 @@ const ResultsSection = () => {
   const stats = [
     {
       icon: TrendingUp,
-      value: 40,
+      value: 21.7,
       suffix: "%",
-      label: "Average MoM Growth",
+      label: "Average MoM Revenue Growth",
       color: "from-green-500 to-emerald-600"
     },
     {
       icon: Repeat,
-      value: 3,
+      value: 5,
       suffix: "x",
       label: "ROI Over Traditional Methods",
       color: "from-blue-500 to-cyan-600"
     },
     {
       icon: Users,
-      value: 200,
+      value: 300,
       suffix: "+",
       label: "New Customers Monthly Per Brand",
       color: "from-purple-500 to-violet-600"
     },
     {
       icon: DollarSign,
-      value: 95,
+      value: 90,
       suffix: "%",
       label: "Cost Reduction in Operations",
       color: "from-orange-500 to-red-600"
@@ -56,15 +56,15 @@ const ResultsSection = () => {
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
         
         setCounters({
-          growth: Math.floor(40 * easeOutQuart),
-          roi: Math.floor(3 * easeOutQuart),
-          customers: Math.floor(200 * easeOutQuart),
-          reduction: Math.floor(95 * easeOutQuart)
+          growth: parseFloat((21.7 * easeOutQuart).toFixed(1)),
+          roi: Math.floor(5 * easeOutQuart),
+          customers: Math.floor(300 * easeOutQuart),
+          reduction: Math.floor(90 * easeOutQuart)
         });
 
         if (step >= steps) {
           clearInterval(timer);
-          setCounters({ growth: 40, roi: 3, customers: 200, reduction: 95 });
+          setCounters({ growth: 21.7, roi: 5, customers: 300, reduction: 90 });
         }
       }, stepDuration);
     };
@@ -114,7 +114,7 @@ const ResultsSection = () => {
                 </div>
                 <div className="mb-3 sm:mb-4">
                   <span className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text">
-                    {counterValues[index]}
+                    {index === 0 ? `+${counterValues[index]}` : counterValues[index]}
                   </span>
                   <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                     {stat.suffix}
