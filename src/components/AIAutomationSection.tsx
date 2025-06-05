@@ -75,8 +75,8 @@ const AIAutomationSection = () => {
             Custom <span className="gradient-text">AI Automation</span>
           </h2>
           
-          {/* Animated Robot - Positioned below heading */}
-          <div className="flex justify-center mb-8">
+          {/* Enhanced 3D Animated Robot - Positioned below heading */}
+          <div className="flex justify-center mb-8" style={{ perspective: '1000px' }}>
             <div 
               className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72"
               style={{
@@ -84,9 +84,10 @@ const AIAutomationSection = () => {
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
-                animation: 'robotHandWave 3s ease-in-out infinite',
+                animation: 'robotHandWave 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite',
                 transform: 'translateZ(0)',
                 willChange: 'transform',
+                transformStyle: 'preserve-3d',
               }}
             />
           </div>
